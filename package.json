@@ -2,11 +2,13 @@
   "name": "rate-repository-app",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@expo/metro-runtime": "~6.1.2",
@@ -17,5 +19,13 @@
     "react-native": "0.81.5",
     "react-native-web": "^0.21.0"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@eslint/compat": "^2.0.0",
+    "eslint": "^9.39.2",
+    "eslint-config-expo": "^10.0.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^17.0.0",
+    "prettier": "^3.7.4"
+  }
 }
