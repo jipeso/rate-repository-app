@@ -5,14 +5,14 @@ import Text from "./Text";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: theme.colors.contrastWhite,
     padding: 10,
   },
   languageTag: {
     padding: 4,
     borderRadius: 4,
     backgroundColor: theme.colors.primary,
-    color: theme.colors.textContrast,
+    color: theme.colors.contrastWhite,
     alignSelf: "flex-start",
   },
   avatar: {
