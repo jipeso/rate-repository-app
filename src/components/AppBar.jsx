@@ -21,7 +21,7 @@ const AppBarTab = ({ name, path }) => {
   return (
     <Pressable style={styles.tabItem} onPress={() => {}}>
       <Link to={path}>
-        <Text fontWeight="bold" fontSize="subheading" color="textContrast">
+        <Text fontWeight="bold" fontSize="subheading" color="contrastWhite">
           {name}
         </Text>
       </Link>
