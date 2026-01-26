@@ -1,9 +1,12 @@
 import { StyleSheet, Pressable, View, ScrollView } from "react-native";
-import { Link } from "react-router-native";
+import { useNavigate } from "react-router-native";
+import { useQuery } from "@apollo/client/react";
 import Constants from "expo-constants";
 
 import theme from "../theme";
 import Text from "./Text";
+import { ME } from "../graphql/queries";
+import useSignOut from "../hooks/useSignOut";
 
 const styles = StyleSheet.create({
   container: {
@@ -17,24 +20,33 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBarTab = ({ name, path }) => {
-  return (
-    <Pressable style={styles.tabItem} onPress={() => {}}>
-      <Link to={path}>
-        <Text fontWeight="bold" fontSize="subheading" color="contrastWhite">
-          {name}
-        </Text>
-      </Link>
-    </Pressable>
-  );
-};
+const AppBarTab = ({ name, onPress }) => (
+  <Pressable style={styles.tabItem} onPress={onPress}>
+    <Text fontWeight="bold" fontSize="subheading" color="contrastWhite">
+      {name}
+    </Text>
+  </Pressable>
+);
 
 const AppBar = () => {
+  const { data } = useQuery(ME);
+  const signOut = useSignOut();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/signIn");
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView horizontal>
-        <AppBarTab name="Repositories" path="/" />
-        <AppBarTab name="Sign in" path="/signIn" />
+        <AppBarTab name="Repositories" onPress={() => navigate("/")} />
+        {data?.me ? (
+          <AppBarTab name="Sign out" onPress={handleSignOut} />
+        ) : (
+          <AppBarTab name="Sign in" onPress={() => navigate("/signIn")} />
+        )}
       </ScrollView>
     </View>
   );

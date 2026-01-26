@@ -19,7 +19,7 @@ const useSignIn = () => {
     });
 
     await authStorage.setAccessToken(data.authenticate.accessToken);
-    await apolloClient.resetStore();
+    apolloClient.resetStore();
 
     return { data };
   };
