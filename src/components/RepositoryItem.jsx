@@ -2,6 +2,7 @@ import { View, Image, StyleSheet } from "react-native";
 
 import theme from "../theme";
 import Text from "./Text";
+import formatInThousands from "../utils/formatInThousands";
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
 const RepositoryStat = ({ name, number }) => {
   return (
     <View style={{ gap: 3 }}>
-      <Text fontWeight="bold">{number}</Text>
+      <Text fontWeight="bold">{formatInThousands(number)}</Text>
       <Text fontColor="textSecondary">{name}</Text>
     </View>
   );
@@ -33,7 +34,7 @@ const RepositoryStat = ({ name, number }) => {
 
 const RepositoryItem = ({ item }) => {
   return (
-    <View style={styles.container}>
+    <View testID="repositoryItem" style={styles.container}>
       <View style={{ flexDirection: "row", gap: 15, marginBottom: 15 }}>
         <Image
           style={styles.avatar}
