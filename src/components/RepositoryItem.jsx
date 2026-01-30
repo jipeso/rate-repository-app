@@ -1,4 +1,4 @@
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, Linking, Pressable } from "react-native";
 
 import theme from "../theme";
 import Text from "./Text";
@@ -21,18 +21,33 @@ const styles = StyleSheet.create({
     width: 40,
     borderRadius: 4,
   },
+  link: {
+    backgroundColor: theme.colors.primary,
+    padding: 15,
+    marginTop: 10,
+    borderRadius: 4,
+    alignItems: "center",
+  },
+  linkText: {
+    color: theme.colors.contrastWhite,
+    fontWeight: "bold",
+  },
 });
 
 const RepositoryStat = ({ name, number }) => {
   return (
     <View style={{ gap: 3 }}>
       <Text fontWeight="bold">{formatInThousands(number)}</Text>
-      <Text fontColor="textSecondary">{name}</Text>
+      <Text color="textSecondary">{name}</Text>
     </View>
   );
 };
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, displayLink = false }) => {
+  const handleLinkClick = () => {
+    Linking.openURL(item.url);
+  };
+
   return (
     <View testID="repositoryItem" style={styles.container}>
       <View style={{ flexDirection: "row", gap: 15, marginBottom: 15 }}>
@@ -43,10 +58,12 @@ const RepositoryItem = ({ item }) => {
           }}
         />
 
-        <View style={{ gap: 3 }}>
+        <View style={{ gap: 3, flex: 1 }}>
           <Text fontWeight="bold">{item.fullName}</Text>
           <Text color="textSecondary">{item.description}</Text>
-          <Text style={styles.languageTag}>{item.language}</Text>
+          <Text color="contrastWhite" style={styles.languageTag}>
+            {item.language}
+          </Text>
         </View>
       </View>
 
@@ -56,6 +73,12 @@ const RepositoryItem = ({ item }) => {
         <RepositoryStat name="Reviews" number={item.reviewCount} />
         <RepositoryStat name="Rating" number={item.ratingAverage} />
       </View>
+
+      {displayLink && (
+        <Pressable onPress={handleLinkClick} style={styles.link}>
+          <Text style={styles.linkText}>Open in GitHub</Text>
+        </Pressable>
+      )}
     </View>
   );
 };
