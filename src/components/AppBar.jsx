@@ -32,6 +32,7 @@ const AppBar = () => {
   const { data } = useQuery(ME);
   const signOut = useSignOut();
   const navigate = useNavigate();
+  const currentUser = data?.me;
 
   const handleSignOut = async () => {
     await signOut();
@@ -42,8 +43,14 @@ const AppBar = () => {
     <View style={styles.container}>
       <ScrollView horizontal>
         <AppBarTab name="Repositories" onPress={() => navigate("/")} />
-        {data?.me ? (
-          <AppBarTab name="Sign out" onPress={handleSignOut} />
+        {currentUser ? (
+          <View style={{ flexDirection: "row" }}>
+            <AppBarTab
+              name="Create a review"
+              onPress={() => navigate("/review")}
+            />
+            <AppBarTab name="Sign out" onPress={handleSignOut} />
+          </View>
         ) : (
           <AppBarTab name="Sign in" onPress={() => navigate("/signIn")} />
         )}

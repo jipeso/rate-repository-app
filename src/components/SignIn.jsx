@@ -9,7 +9,7 @@ import useSignIn from "../hooks/useSignIn";
 
 const styles = StyleSheet.create({
   container: {
-    padding: 15,
+    padding: 10,
     backgroundColor: "white",
   },
   inputField: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderRadius: 3,
     padding: 15,
-    marginBottom: 15,
+    marginBottom: 10,
   },
   inputFieldError: {
     borderColor: theme.colors.error,

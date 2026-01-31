@@ -21,16 +21,12 @@ const styles = StyleSheet.create({
     width: 40,
     borderRadius: 4,
   },
-  link: {
-    backgroundColor: theme.colors.primary,
+  button: {
     padding: 15,
+    borderRadius: 3,
     marginTop: 10,
-    borderRadius: 4,
     alignItems: "center",
-  },
-  linkText: {
-    color: theme.colors.contrastWhite,
-    fontWeight: "bold",
+    backgroundColor: theme.colors.primary,
   },
 });
 
@@ -75,8 +71,10 @@ const RepositoryItem = ({ item, displayLink = false }) => {
       </View>
 
       {displayLink && (
-        <Pressable onPress={handleLinkClick} style={styles.link}>
-          <Text style={styles.linkText}>Open in GitHub</Text>
+        <Pressable onPress={handleLinkClick} style={styles.button}>
+          <Text color="contrastWhite" fontWeight="bold">
+            Open in GitHub
+          </Text>
         </Pressable>
       )}
     </View>

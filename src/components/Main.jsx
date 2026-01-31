@@ -1,11 +1,12 @@
 import { StyleSheet, View } from "react-native";
 import { Route, Routes } from "react-router-native";
 
+import theme from "../theme";
 import AppBar from "./AppBar";
 import RepositoryList from "./RepositoryList";
 import RepositoryDetails from "./RepositoryDetails";
 import SignIn from "./SignIn";
-import theme from "../theme";
+import ReviewForm from "./ReviewForm";
 
 const styles = StyleSheet.create({
   container: {
@@ -23,6 +24,7 @@ const Main = () => {
         <Route path="/" element={<RepositoryList />} />
         <Route path="/:id" element={<RepositoryDetails />} />
         <Route path="/signIn" element={<SignIn />} />
+        <Route path="/review" element={<ReviewForm />} />
       </Routes>
     </View>
   );
