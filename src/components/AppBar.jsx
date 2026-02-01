@@ -52,7 +52,10 @@ const AppBar = () => {
             <AppBarTab name="Sign out" onPress={handleSignOut} />
           </View>
         ) : (
-          <AppBarTab name="Sign in" onPress={() => navigate("/signIn")} />
+          <View style={{ flexDirection: "row" }}>
+            <AppBarTab name="Sign in" onPress={() => navigate("/signIn")} />
+            <AppBarTab name="Sign up" onPress={() => navigate("/signUp")} />
+          </View>
         )}
       </ScrollView>
     </View>

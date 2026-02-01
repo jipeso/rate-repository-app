@@ -5,7 +5,7 @@ import { number, object, string } from "yup";
 
 import Text from "./Text";
 import theme from "../theme";
-import { useCreateReview } from "../hooks/useCreateReview";
+import useCreateReview from "../hooks/useCreateReview";
 
 const styles = StyleSheet.create({
   container: {
