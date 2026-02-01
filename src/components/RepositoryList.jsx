@@ -4,8 +4,14 @@ import { useNavigate } from "react-router-native";
 import RepositoryItem from "./RepositoryItem";
 import ItemSeparator from "./ItemSeparator";
 import useRepositories from "../hooks/useRepositories";
+import SortingMenu from "./SortingMenu";
+import { useState } from "react";
 
-export const RepositoryListContainer = ({ repositories }) => {
+export const RepositoryListContainer = ({
+  repositories,
+  sortOption,
+  setSortOption,
+}) => {
   const navigate = useNavigate();
 
   const repositoryNodes = repositories
@@ -25,14 +31,28 @@ export const RepositoryListContainer = ({ repositories }) => {
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={renderItem}
+      ListHeaderComponent={() => (
+        <SortingMenu selected={sortOption} onSelect={setSortOption} />
+      )}
     />
   );
 };
 
 const RepositoryList = () => {
-  const { repositories } = useRepositories();
+  const [sortOption, setSortOption] = useState(null);
 
-  return <RepositoryListContainer repositories={repositories} />;
+  const { repositories } = useRepositories(
+    sortOption?.orderBy,
+    sortOption?.orderDirection,
+  );
+
+  return (
+    <RepositoryListContainer
+      repositories={repositories}
+      sortOption={sortOption}
+      setSortOption={setSortOption}
+    />
+  );
 };
 
 export default RepositoryList;

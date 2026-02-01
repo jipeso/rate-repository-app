@@ -1,5 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import { Route, Routes } from "react-router-native";
+import { PaperProvider } from "react-native-paper";
 
 import theme from "../theme";
 import AppBar from "./AppBar";
@@ -19,16 +20,18 @@ const styles = StyleSheet.create({
 
 const Main = () => {
   return (
-    <View style={styles.container}>
-      <AppBar />
-      <Routes>
-        <Route path="/" element={<RepositoryList />} />
-        <Route path="/:id" element={<RepositoryDetails />} />
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/review" element={<ReviewForm />} />
-      </Routes>
-    </View>
+    <PaperProvider>
+      <View style={styles.container}>
+        <AppBar />
+        <Routes>
+          <Route path="/" element={<RepositoryList />} />
+          <Route path="/:id" element={<RepositoryDetails />} />
+          <Route path="/signIn" element={<SignIn />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/review" element={<ReviewForm />} />
+        </Routes>
+      </View>
+    </PaperProvider>
   );
 };
 

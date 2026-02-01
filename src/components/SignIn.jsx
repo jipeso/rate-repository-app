@@ -67,11 +67,13 @@ export const SignInContainer = ({ onSubmit }) => {
         value={formik.values.username}
         onChangeText={formik.handleChange("username")}
       />
+
       {formik.touched.username && formik.errors.username && (
         <Text color="error" style={{ marginBottom: 15 }}>
           {formik.errors.username}
         </Text>
       )}
+
       <TextInput
         style={[
           styles.inputField,
@@ -82,11 +84,13 @@ export const SignInContainer = ({ onSubmit }) => {
         value={formik.values.password}
         onChangeText={formik.handleChange("password")}
       />
+
       {formik.touched.password && formik.errors.password && (
         <Text color="error" style={{ marginBottom: 15 }}>
           {formik.errors.password}
         </Text>
       )}
+
       <Pressable style={styles.button} onPress={formik.handleSubmit}>
         <Text color="contrastWhite" fontWeight="bold">
           Sign in
