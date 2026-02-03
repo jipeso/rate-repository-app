@@ -71,6 +71,7 @@ const SignUpContainer = ({ onSubmit }) => {
           hasError("username") && styles.inputFieldError,
         ]}
         placeholder="Username"
+        placeholderTextColor={theme.colors.textSecondary}
         value={formik.values.username}
         onChangeText={formik.handleChange("username")}
       />
@@ -88,6 +89,7 @@ const SignUpContainer = ({ onSubmit }) => {
         ]}
         secureTextEntry
         placeholder="Password"
+        placeholderTextColor={theme.colors.textSecondary}
         value={formik.values.password}
         onChangeText={formik.handleChange("password")}
       />
@@ -105,6 +107,7 @@ const SignUpContainer = ({ onSubmit }) => {
         ]}
         secureTextEntry
         placeholder="Password confirmation"
+        placeholderTextColor={theme.colors.textSecondary}
         value={formik.values.passwordConfirm}
         onChangeText={formik.handleChange("passwordConfirm")}
       />

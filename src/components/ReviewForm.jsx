@@ -68,6 +68,7 @@ const ReviewFormContainer = ({ onSubmit }) => {
           hasError("ownerName") && styles.inputFieldError,
         ]}
         placeholder="Repository owner name"
+        placeholderTextColor={theme.colors.textSecondary}
         value={formik.values.ownerName}
         onChangeText={formik.handleChange("ownerName")}
       />
@@ -83,6 +84,7 @@ const ReviewFormContainer = ({ onSubmit }) => {
           hasError("repositoryName") && styles.inputFieldError,
         ]}
         placeholder="Repository name"
+        placeholderTextColor={theme.colors.textSecondary}
         value={formik.values.repositoryName}
         onChangeText={formik.handleChange("repositoryName")}
       />
@@ -98,6 +100,7 @@ const ReviewFormContainer = ({ onSubmit }) => {
           hasError("rating") && styles.inputFieldError,
         ]}
         placeholder="Rating between 0 and 100"
+        placeholderTextColor={theme.colors.textSecondary}
         value={formik.values.rating}
         onChangeText={formik.handleChange("rating")}
       />
@@ -110,6 +113,7 @@ const ReviewFormContainer = ({ onSubmit }) => {
       <TextInput
         style={[styles.inputField, hasError("text") && styles.inputFieldError]}
         placeholder="Review"
+        placeholderTextColor={theme.colors.textSecondary}
         value={formik.values.text}
         onChangeText={formik.handleChange("text")}
       />

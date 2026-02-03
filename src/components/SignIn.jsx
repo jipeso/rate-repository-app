@@ -64,6 +64,7 @@ export const SignInContainer = ({ onSubmit }) => {
           hasError("username") && styles.inputFieldError,
         ]}
         placeholder="Username"
+        placeholderTextColor={theme.colors.textSecondary}
         value={formik.values.username}
         onChangeText={formik.handleChange("username")}
       />
@@ -81,6 +82,7 @@ export const SignInContainer = ({ onSubmit }) => {
         ]}
         secureTextEntry
         placeholder="Password"
+        placeholderTextColor={theme.colors.textSecondary}
         value={formik.values.password}
         onChangeText={formik.handleChange("password")}
       />

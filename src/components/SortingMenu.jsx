@@ -2,6 +2,8 @@ import { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { Button, Portal, Modal, List } from "react-native-paper";
 
+import theme from "../theme";
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
@@ -51,7 +53,10 @@ const SortingMenu = ({ selected, onSelect }) => {
           height: 60,
         }}
         style={{ borderRadius: 0 }}
-        labelStyle={{ fontSize: 14, color: "#24292e" }}
+        labelStyle={{
+          fontSize: theme.fontSizes.body,
+          color: theme.colors.textPrimary,
+        }}
       >
         {label}
       </Button>
