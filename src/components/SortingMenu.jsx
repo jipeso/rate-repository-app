@@ -41,8 +41,18 @@ const SortingMenu = ({ selected, onSelect }) => {
   const label = (selected && selected.label) || sortingOptions[0].label;
 
   return (
-    <View style={{ padding: 10 }}>
-      <Button onPress={openMenu} icon="menu-down">
+    <View style={{ padding: 0 }}>
+      <Button
+        onPress={openMenu}
+        icon="menu-down"
+        contentStyle={{
+          flexDirection: "row-reverse",
+          justifyContent: "space-between",
+          height: 60,
+        }}
+        style={{ borderRadius: 0 }}
+        labelStyle={{ fontSize: 14, color: "#24292e" }}
+      >
         {label}
       </Button>
 
